@@ -1,0 +1,9 @@
+{
+  "name": "luxhair-za",
+  "version": "1.0.0",
+  "description": "LuxHair ZA - Luxury Hair Extensions E-Commerce with User Authentication",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.87.1",
+    "bcryptjs": "^2.4.3"
+  }
+}

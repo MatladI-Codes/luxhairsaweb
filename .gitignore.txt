@@ -1,0 +1,86 @@
+# LuxHair ZA - Git Ignore File
+# Prevents sensitive files from being committed to GitHub
+
+# ===========================================
+# ENVIRONMENT VARIABLES (MOST IMPORTANT!)
+# ===========================================
+.env
+.env.local
+.env.production
+.env.development
+*.env
+
+# ===========================================
+# DEPENDENCIES
+# ===========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===========================================
+# VERCEL
+# ===========================================
+.vercel
+.vercel.json
+
+# ===========================================
+# SYSTEM FILES
+# ===========================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ===========================================
+# IDE / EDITOR
+# ===========================================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ===========================================
+# LOGS
+# ===========================================
+*.log
+logs/
+npm-debug.log*
+
+# ===========================================
+# BACKUP FILES
+# ===========================================
+*.bak
+*.backup
+*_backup
+backup/
+
+# ===========================================
+# TEMPORARY FILES
+# ===========================================
+tmp/
+temp/
+*.tmp
+
+# ===========================================
+# BUILD OUTPUT (if any)
+# ===========================================
+dist/
+build/
+out/
+
+# ===========================================
+# TESTING
+# ===========================================
+coverage/
+.nyc_output/
+
+# ===========================================
+# NOTES / DOCUMENTATION (Optional)
+# ===========================================
+NOTES.md
+TODO.md
+*.notes

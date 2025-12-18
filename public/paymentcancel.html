@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Cancelled | LuxHair ZA</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .cancel-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(193, 160, 70, 0.05) 0%, transparent 100%);
+        }
+        
+        .cancel-card {
+            background: var(--card);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(193, 160, 70, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cancel-icon {
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            border: 4px solid #E74C3C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: shake 0.5s ease;
+        }
+        
+        .cancel-icon:before,
+        .cancel-icon:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: #E74C3C;
+            border-radius: 2px;
+        }
+        
+        .cancel-icon:before {
+            transform: rotate(45deg);
+        }
+        
+        .cancel-icon:after {
+            transform: rotate(-45deg);
+        }
+        
+        .cancel-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .cancel-message {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .cancel-info {
+            background: rgba(231, 76, 60, 0.05);
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-radius: 0;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .info-item i {
+            color: #E74C3C;
+            font-size: 1.1rem;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .actions .btn {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .help-text {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(193, 160, 70, 0.1);
+        }
+        
+        .help-text p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: opacity var(--trans);
+        }
+        
+        .contact-item:hover {
+            opacity: 0.7;
+        }
+        
+        .contact-item i {
+            font-size: 1rem;
+        }
+        
+        /* Broken heart SVG animation */
+        .broken-heart {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .heart-left,
+        .heart-right {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            transition: all 0.6s ease;
+        }
+        
+        .heart-left {
+            left: 0;
+            animation: slideLeft 0.6s ease;
+        }
+        
+        .heart-right {
+            right: 0;
+            animation: slideRight 0.6s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        @keyframes slideLeft {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(-10px) rotate(-5deg); }
+        }
+        
+        @keyframes slideRight {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(10px) rotate(5deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .cancel-card {
+                padding: 40px 25px;
+            }
+            
+            .cancel-title {
+                font-size: 2.2rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .actions .btn {
+                min-width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="cancel-container">
+        <div class="cancel-card">
+            <!-- Broken Heart SVG -->
+            <svg class="broken-heart" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <g class="heart-left">
+                    <path d="M60,30 C60,20 50,10 35,10 C20,10 10,20 10,35 C10,50 30,70 60,95" 
+                          fill="#E74C3C" stroke="#C0392B" stroke-width="2"/>
+                </g>
+                <g class="heart-right">
+                    <path d="M60,30 C60,20 70,10 85,10 C100,10 110,20 110,35 C110,50 90,70 60,95" 
+                          fill="#E74C3C" stroke="#C0392B" stroke-width="2"/>
+                </g>
+            </svg>
+            
+            <h1 class="cancel-title">Payment Cancelled</h1>
+            <p class="cancel-message">
+                Your payment was not completed. Don't worry, no charges were made to your account.
+            </p>
+            
+            <div class="cancel-info">
+                <div class="info-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Your items are still in your cart</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>No charges were processed</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Your cart will be saved for 7 days</span>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <a href="checkout.html" class="btn">
+                    <i class="fas fa-redo" style="margin-right: 8px;"></i>
+                    Try Again
+                </a>
+                <a href="index.html" class="btn btn-ghost">
+                    <i class="fas fa-shopping-bag" style="margin-right: 8px;"></i>
+                    Continue Shopping
+                </a>
+            </div>
+            
+            <div class="help-text">
+                <p><strong>Need help with your order?</strong></p>
+                <p>Our customer service team is here to assist you.</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:info@luxhairza.co.za" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@luxhairza.co.za</span>
+                    </a>
+                    <a href="tel:+27123456789" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+27 12 345 6789</span>
+                    </a>
+                    <a href="https://wa.me/27123456789" class="contact-item" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+        
+        // Optional: Log cancellation for analytics
+        console.log('Payment cancelled at:', new Date().toISOString());
+    </script>
+</body>
+</html>

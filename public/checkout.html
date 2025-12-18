@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | LuxHair ZA</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Checkout-specific styles */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 5% 60px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+        }
+        
+        .checkout-main {
+            background: var(--card);
+            padding: 40px;
+            border: 1px solid rgba(193, 160, 70, 0.1);
+        }
+        
+        .checkout-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .checkout-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .checkout-subtitle {
+            color: var(--muted);
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+        
+        .checkout-section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(193, 160, 70, 0.1);
+        }
+        
+        .checkout-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .section-number {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row-full {
+            margin-bottom: 20px;
+        }
+        
+        .cart-summary {
+            background: var(--card);
+            padding: 30px;
+            border: 1px solid rgba(193, 160, 70, 0.1);
+            border-radius: 0;
+        }
+        
+        .summary-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--text);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(193, 160, 70, 0.1);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-image {
+            width: 60px;
+            height: 60px;
+            background: var(--bg);
+            border: 1px solid rgba(193, 160, 70, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .item-qty {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        
+        .item-price {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .summary-row.total {
+            border-top: 2px solid var(--gold);
+            margin-top: 15px;
+            padding-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .summary-row.total .value {
+            color: var(--gold);
+        }
+        
+        .payment-methods {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .payment-option {
+            border: 2px solid rgba(193, 160, 70, 0.2);
+            padding: 20px;
+            cursor: pointer;
+            transition: all var(--trans);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--bg);
+        }
+        
+        .payment-option:hover {
+            border-color: var(--gold);
+            background: rgba(193, 160, 70, 0.05);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--gold);
+            background: rgba(193, 160, 70, 0.1);
+        }
+        
+        .payment-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .payment-option.selected .payment-radio:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .payment-info {
+            flex: 1;
+        }
+        
+        .payment-name {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+        
+        .payment-desc {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        
+        .place-order-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--trans);
+            margin-top: 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .place-order-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(193, 160, 70, 0.3);
+        }
+        
+        .place-order-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            transition: gap var(--trans);
+        }
+        
+        .back-link:hover {
+            gap: 12px;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .empty-text {
+            color: var(--muted);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                padding-top: 100px;
+            }
+            
+            .checkout-sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .checkout-main {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkout-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Simple Header for Checkout -->
+    <header class="header" style="justify-content: center;">
+        <div class="logo-container">
+            <div class="logo-img">
+                <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+            </div>
+            <div class="logo-text">LUX<span>HAIR</span></div>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <!-- Main Checkout Form -->
+        <div class="checkout-main">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Continue Shopping
+            </a>
+            
+            <h1 class="checkout-title">Checkout</h1>
+            <p class="checkout-subtitle">Complete your purchase in a few simple steps</p>
+            
+            <div id="checkoutContent">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Order Summary Sidebar -->
+        <div class="checkout-sidebar">
+            <div class="cart-summary">
+                <h2 class="summary-title">Order Summary</h2>
+                
+                <div id="summaryItems">
+                    <!-- Items will be loaded by JavaScript -->
+                </div>
+                
+                <div style="margin-top: 25px;">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">R0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="summaryShipping">FREE</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span class="value" id="summaryTotal">R0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

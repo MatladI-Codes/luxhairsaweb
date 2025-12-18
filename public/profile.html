@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | LuxHair ZA</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 0 5%;
+        }
+        
+        .profile-section {
+            background: var(--card);
+            padding: 40px;
+            border: 1px solid rgba(193, 160, 70, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .profile-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .profile-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                margin-top: 100px;
+            }
+            
+            .profile-section {
+                padding: 25px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <header class="header" style="justify-content: center;">
+        <div class="logo-container" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <div class="logo-img">
+                <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+            </div>
+            <div class="logo-text">LUX<span>HAIR</span></div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--gold); text-decoration: none; font-weight: 500; margin-bottom: 30px;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <div id="profileContainer">
+            <p style="text-align: center; padding: 40px;">Loading profile...</p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

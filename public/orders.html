@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders | LuxHair ZA</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .orders-container {
+            max-width: 1000px;
+            margin: 120px auto 60px;
+            padding: 0 5%;
+        }
+        
+        .orders-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+        
+        .order-card {
+            background: var(--card);
+            padding: 30px;
+            border: 1px solid rgba(193, 160, 70, 0.1);
+            margin-bottom: 25px;
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(193, 160, 70, 0.1);
+        }
+        
+        .order-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        
+        .order-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        
+        .order-items {
+            margin-bottom: 20px;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: var(--text);
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .orders-container {
+                margin-top: 100px;
+            }
+            
+            .order-card {
+                padding: 20px;
+            }
+            
+            .order-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <header class="header" style="justify-content: center;">
+        <div class="logo-container" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <div class="logo-img">
+                <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+            </div>
+            <div class="logo-text">LUX<span>HAIR</span></div>
+        </div>
+    </header>
+
+    <div class="orders-container">
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--gold); text-decoration: none; font-weight: 500; margin-bottom: 30px;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <h1 class="orders-title">My Orders</h1>
+        
+        <div id="ordersContainer">
+            <p style="text-align: center; padding: 40px;">Loading orders...</p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

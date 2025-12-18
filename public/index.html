@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxHair ZA | Luxury Hair Extensions</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+        </div>
+        <div class="loading-text">LUX<span>HAIR</span></div>
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- HEADER - ALL ON ONE LINE -->
+    <header class="header">
+        <div class="logo-container" id="logo">
+            <div class="logo-img">
+                <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+            </div>
+            <div class="logo-text">LUX<span>HAIR</span></div>
+        </div>
+        
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder="Search products...">
+            <button class="search-btn" id="searchBtn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <div class="header-right">
+            <!-- User is NOT logged in - show login button and other accessible features -->
+            <div id="authButtons" class="header-right">
+                <button class="header-btn" id="loginBtn">
+                    <i class="fas fa-user"></i>
+                    <span class="hide-mobile">Login</span>
+                </button>
+                
+                <button class="header-btn" id="trackBtn">
+                    <i class="fas fa-truck"></i>
+                    <span class="hide-mobile">Track</span>
+                </button>
+                
+                <button class="header-btn" id="feedbackBtn">
+                    <i class="fas fa-comment-alt"></i>
+                    <span class="hide-mobile">Feedback</span>
+                </button>
+                
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                
+                <!-- Cart button for logged out users - shows login prompt -->
+                <button class="header-btn cart-btn" id="cartBtnLoggedOut">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            
+            <!-- User IS logged in - show user profile with cart access -->
+            <div id="userProfile" class="user-profile" style="display: none;">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <span class="user-name" id="userName">User</span>
+                <div class="user-dropdown">
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" id="ordersLink"><i class="fas fa-shopping-bag"></i> Orders</a>
+                    <a href="#" id="wishlistLink"><i class="fas fa-heart"></i> Wishlist</a>
+                    <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+                
+                <!-- Theme toggle and other buttons for logged in users -->
+                <button class="theme-toggle" id="themeToggleLoggedIn">
+                    <i class="fas fa-sun"></i>
+                </button>
+                
+                <button class="header-btn" id="trackBtnLoggedIn">
+                    <i class="fas fa-truck"></i>
+                    <span class="hide-mobile">Track</span>
+                </button>
+                
+                <button class="header-btn" id="feedbackBtnLoggedIn">
+                    <i class="fas fa-comment-alt"></i>
+                    <span class="hide-mobile">Feedback</span>
+                </button>
+                
+                <!-- Cart button for logged in users - opens cart drawer -->
+                <button class="header-btn cart-btn" id="cartBtnLoggedIn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MINI SUB-HEADER -->
+    <div class="sub-header">
+        <button class="sub-header-link" data-target="new">New Arrivals</button>
+        <button class="sub-header-link" data-target="sale">On Sale</button>
+        <button class="sub-header-link" data-target="popular">Popular Picks</button>
+        <button class="sub-header-link" id="priceListBtn">Price List</button>
+    </div>
+
+    <!-- SHOP COLLECTION BUTTON - CENTERED UNDER SUB-HEADER -->
+    <div class="shop-collection-container" id="shopCollectionContainer">
+        <button class="shop-collection-btn" id="shopCollectionBtn">SHOP COLLECTION</button>
+    </div>
+
+    <!-- PRICE LIST DRAWER -->
+    <div class="price-drawer" id="priceDrawer">
+        <div class="price-header">
+            <h3 class="price-title">Price List</h3>
+            <button class="close-price" id="closePrice">×</button>
+        </div>
+        
+        <div class="price-content">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr>
+                        <th style="background: var(--gold); color: #000; padding: 12px 10px; font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 0.8px; border-right: 1px solid rgba(255,255,255,0.2);">Length</th>
+                        <th style="background: var(--gold); color: #000; padding: 12px 10px; font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 0.8px; border-right: 1px solid rgba(255,255,255,0.2);">2+Closure</th>
+                        <th style="background: var(--gold); color: #000; padding: 12px 10px; font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 0.8px; border-right: 1px solid rgba(255,255,255,0.2);">4+Closure</th>
+                        <th style="background: var(--gold); color: #000; padding: 12px 10px; font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 0.8px;">13x4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">8" (250g)</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R3,500</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R3,800</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R4,500</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">10"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R4,000</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R4,300</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R4,800</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">12"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R4,600</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R5,500</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R6,000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">14"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R5,000</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R5,800</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R6,200</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">16"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R6,000</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R6,500</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R7,200</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">18"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R7,000</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R7,450</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R8,000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">20"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R7,600</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R8,300</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R8,600</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">22"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R8,100</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R8,900</td>
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">—</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">24"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">Contact</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R9,400</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R10,900</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(193, 160, 70, 0.1);">
+                        <td style="padding: 12px 10px; text-align: center; border-right: 1px solid rgba(193, 160, 70, 0.1);">26"</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R9,600</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600; border-right: 1px solid rgba(193, 160, 70, 0.1);">R10,100</td>
+                        <td style="padding: 12px 10px; text-align: center; color: var(--gold); font-weight: 600;">R11,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(193, 160, 70, 0.05); border: 1px solid rgba(193, 160, 70, 0.1);">
+                <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 10px; color: var(--text); font-weight: 600;">Important Notes:</h4>
+                <ul style="color: var(--muted); font-size: 0.85rem; line-height: 1.6; padding-left: 20px;">
+                    <li>All prices are in South African Rand (ZAR)</li>
+                    <li>Prices include standard delivery within South Africa</li>
+                    <li>Custom lengths available upon request</li>
+                    <li>Contact us for bulk order discounts</li>
+                    <li>Prices subject to change based on hair quality and availability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION WITH CANVA VIDEO - NO TEXT -->
+    <section class="hero" id="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="media/Lux LPG final.mp4" type="video/mp4">
+            <img src="media/bg1.png" alt="Luxury Hair Extensions">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <!-- TEXT AND BUTTONS REMOVED -->
+        </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section class="section" id="new">
+        <img src="media/bg2.png" alt="" class="section-bg">
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-id="1" data-name="Brazilian Straight 22 Inch" data-price="1200">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Brazilian Straight 22 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Brazilian Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Brazilian Straight 22"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R1,200</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" data-id="2" data-name="Peruvian Body Wave 24 Inch" data-price="1550">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Peruvian Body Wave 24 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Peruvian Body Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Peruvian Body Wave 24"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <div class="product-price">R1,550</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card" data-id="3" data-name="HD Lace Frontal 13x4" data-price="1800">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="HD Lace Frontal 13x4" class="product-image">
+                    <img src="media/PLH.png" alt="HD Lace Frontal Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">HD Lace Frontal 13x4</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R1,800</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ON SALE -->
+    <section class="section" id="sale">
+        <img src="media/bg4.png" alt="" class="section-bg">
+        <h2 class="section-title">On Sale</h2>
+        <div class="product-grid">
+            <!-- Product 4 -->
+            <div class="product-card" data-id="4" data-name="Virgin Indian Wave Bundle" data-price="999">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Virgin Indian Wave Bundle" class="product-image">
+                    <img src="media/PLH.png" alt="Virgin Indian Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Virgin Indian Wave Bundle</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R999 <del>R1,299</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card" data-id="5" data-name="Closure 4x4 Deep Wave" data-price="850">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Closure 4x4 Deep Wave" class="product-image">
+                    <img src="media/PLH.png" alt="Closure 4x4 Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Closure 4x4 Deep Wave</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <div class="product-price">R850 <del>R1,100</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR PICKS -->
+    <section class="section" id="popular">
+        <img src="media/bg4.png" alt="" class="section-bg">
+        <h2 class="section-title">Popular Picks</h2>
+        <div class="product-grid">
+            <!-- Product 6 -->
+            <div class="product-card" data-id="6" data-name="Raw Vietnamese Straight 26 Inch" data-price="1950">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Raw Vietnamese Straight 26 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Raw Vietnamese Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Raw Vietnamese Straight 26"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R1,950</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card" data-id="7" data-name="Transparent Lace Wig 13x6" data-price="2200">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Transparent Lace Wig 13x6" class="product-image">
+                    <img src="media/PLH.png" alt="Transparent Lace Wig Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Transparent Lace Wig 13x6</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R2,200</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT OPTIONS SECTION -->
+    <section class="section payment-section" id="payment">
+        <h2 class="section-title">Payment Options</h2>
+        <div class="payment-options">
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3 class="payment-title">Credit/Debit Card</h3>
+                <p class="payment-description">
+                    Secure payments via PayFast. Accepts VISA & MasterCard. 
+                    Instant verification and protection.
+                </p>
+            </div>
+            
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="payment-title">Buy Now, Pay Later</h3>
+                <p class="payment-description">
+                    Flexible payment options with PayJustNow and Payflex. 
+                    Split your payment into installments.
+                </p>
+            </div>
+            
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3 class="payment-title">Bank Transfer (EFT)</h3>
+                <p class="payment-description">
+                    Direct bank transfer available. Use your reference number 
+                    for quick order processing.
+                </p>
+            </div>
+            
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3 class="payment-title">Cash Deposit</h3>
+                <p class="payment-description">
+                    Deposit cash at any bank branch. Email proof of payment 
+                    to complete your order.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="color: var(--muted); font-size: 0.9rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                <strong>Note:</strong> All transactions are secured with 256-bit SSL encryption. 
+                Your payment details are never stored on our servers. 
+                Orders are processed within 24 hours of payment confirmation.
+            </p>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+    <section class="section customers-section" id="customers">
+        <h2 class="section-title">Our Customers</h2>
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Reviews will be loaded dynamically via JavaScript -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="logo-container" style="margin-bottom: 20px; justify-content: flex-start;">
+                    <div class="logo-img">
+                        <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+                    </div>
+                    <div class="logo-text">LUX<span>HAIR</span></div>
+                </div>
+                <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+                    Luxury hair extensions for the modern woman. Premium quality, expert craftsmanship.
+                </p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#new">New Arrivals</a></li>
+                    <li><a href="#sale">On Sale</a></li>
+                    <li><a href="#popular">Popular Picks</a></li>
+                    <li><a href="#payment">Payment Options</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> +27 12 345 6789</p>
+                    <p><i class="fas fa-envelope"></i> info@luxhairza.co.za</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            
+            <!-- Social -->
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <p style="color: var(--muted); font-size: 0.85rem;">
+                    © <span id="currentYear">2023</span> LuxHair ZA. All rights reserved.
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            Premium Luxury Hair Extensions | 100% Human Hair | Fast Nationwide Delivery
+        </div>
+    </footer>
+
+    <!-- LOGIN & SIGNUP MODAL -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <button class="close-modal" id="closeAuth">×</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-group" style="text-align: right;">
+                    <a href="#" style="color: var(--gold); font-size: 0.85rem; text-decoration: none;">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">LOGIN</button>
+                
+                <div class="form-footer">
+                    Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="signupName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="signupEmail" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="signupPassword" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+                
+                <div class="form-group" style="font-size: 0.85rem; color: var(--muted);">
+                    <input type="checkbox" id="termsAgree" required>
+                    <label for="termsAgree">I agree to the <a href="#" style="color: var(--gold);">Terms & Conditions</a> and <a href="#" style="color: var(--gold);">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">CREATE ACCOUNT</button>
+                
+                <div class="form-footer">
+                    Already have an account? <a href="#" id="switchToLogin">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FEEDBACK MODAL -->
+    <div class="modal" id="feedbackModal">
+        <div class="modal-container">
+            <button class="close-modal" id="closeFeedback">×</button>
+            <h3 class="modal-title">Share Your Experience</h3>
+            
+            <form class="feedback-form" id="feedbackForm">
+                <div class="mb-20">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Select Product</label>
+                    <select class="form-input" id="feedbackProduct" style="width: 100%; padding: 10px; border: 1px solid rgba(193, 160, 70, 0.3); background: var(--bg); color: var(--text); font-size: 0.9rem;">
+                        <option value="">Select a product</option>
+                        <option value="1">Brazilian Straight 22"</option>
+                        <option value="2">Peruvian Body Wave 24"</option>
+                        <option value="3">HD Lace Frontal 13x4</option>
+                        <option value="4">Virgin Indian Wave Bundle</option>
+                        <option value="5">Closure 4x4 Deep Wave</option>
+                        <option value="6">Raw Vietnamese Straight 26"</option>
+                        <option value="7">Transparent Lace Wig 13x6</option>
+                    </select>
+                </div>
+                
+                <div class="mb-20">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Rating</label>
+                    <div class="rating-stars" style="display: flex; gap: 5px; margin-bottom: 10px;">
+                        <span class="rating-star" data-value="1" style="font-size: 1.2rem; cursor: pointer; color: #ddd;">★</span>
+                        <span class="rating-star" data-value="2" style="font-size: 1.2rem; cursor: pointer; color: #ddd;">★</span>
+                        <span class="rating-star" data-value="3" style="font-size: 1.2rem; cursor: pointer; color: #ddd;">★</span>
+                        <span class="rating-star" data-value="4" style="font-size: 1.2rem; cursor: pointer; color: #ddd;">★</span>
+                        <span class="rating-star" data-value="5" style="font-size: 1.2rem; cursor: pointer; color: #ddd;">★</span>
+                    </div>
+                </div>
+                
+                <div class="mb-20">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Your Review</label>
+                    <textarea class="form-textarea" id="feedbackText" placeholder="Share your experience..." style="width: 100%; padding: 10px; border: 1px solid rgba(193, 160, 70, 0.3); background: var(--bg); color: var(--text); min-height: 90px; resize: vertical; font-size: 0.9rem;"></textarea>
+                </div>
+                
+                <div class="mb-25">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Name (Optional)</label>
+                    <input type="text" class="form-input" id="feedbackName" placeholder="Anonymous if preferred" style="width: 100%; padding: 10px; border: 1px solid rgba(193, 160, 70, 0.3); background: var(--bg); color: var(--text); font-size: 0.9rem;">
+                </div>
+                
+                <button type="button" class="btn" id="submitFeedback" style="width: 100%;">SUBMIT REVIEW</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TRACK ORDER MODAL -->
+    <div class="modal" id="trackModal">
+        <div class="modal-container">
+            <button class="close-modal" id="closeTrack">×</button>
+            <h3 class="modal-title">Track Your Order</h3>
+            
+            <form class="track-form" id="trackForm">
+                <div class="mb-20">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Order Number</label>
+                    <input type="text" class="form-input" id="orderNumber" placeholder="ORD-2023-12345" style="width: 100%; padding: 10px; border: 1px solid rgba(193, 160, 70, 0.3); background: var(--bg); color: var(--text); font-size: 0.9rem;">
+                </div>
+                
+                <div class="mb-25">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--text);">Email Address</label>
+                    <input type="email" class="form-input" id="orderEmail" placeholder="your@email.com" style="width: 100%; padding: 10px; border: 1px solid rgba(193, 160, 70, 0.3); background: var(--bg); color: var(--text); font-size: 0.9rem;">
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">TRACK ORDER</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <button class="close-modal" id="closeCart">×</button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded dynamically via JavaScript -->
+            <p style="text-align: center; padding: 40px; color: var(--muted);">Your cart is empty</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">R0.00</span>
+            </div>
+            <button class="btn" id="checkoutBtn" style="width: 100%;">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- External JavaScript - LOAD IN THIS ORDER -->
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/script-auth.js"></script>
+    <!-- Add this script tag -->
+<script src="js/auth.js"></script>
+</body>
+</html>
