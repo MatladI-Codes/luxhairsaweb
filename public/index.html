@@ -10,6 +10,8 @@
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+
 </head>
 <body data-theme="light">
     <!-- LOADING SCREEN -->
@@ -21,7 +23,7 @@
         <div class="loading-spinner"></div>
     </div>
 
-    <!-- HEADER - ALL ON ONE LINE -->
+    <!-- HEADER -->
     <header class="header">
         <div class="logo-container" id="logo">
             <div class="logo-img">
@@ -39,7 +41,7 @@
         </div>
         
         <div class="header-right">
-            <!-- User is NOT logged in - show login button and other accessible features -->
+            <!-- User is NOT logged in -->
             <div id="authButtons" class="header-right">
                 <button class="header-btn" id="loginBtn">
                     <i class="fas fa-user"></i>
@@ -60,25 +62,23 @@
                     <i class="fas fa-sun"></i>
                 </button>
                 
-                <!-- Cart button for logged out users - shows login prompt -->
                 <button class="header-btn cart-btn" id="cartBtnLoggedOut">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </button>
             </div>
             
-            <!-- User IS logged in - show user profile with cart access -->
+            <!-- User IS logged in -->
             <div id="userProfile" class="user-profile" style="display: none;">
                 <div class="user-avatar" id="userAvatar">U</div>
                 <span class="user-name" id="userName">User</span>
                 <div class="user-dropdown">
-                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a>
-                    <a href="#" id="ordersLink"><i class="fas fa-shopping-bag"></i> Orders</a>
+                    <a href="profile.html" id="profileLink"><i class="fas fa-user"></i> Profile</a>
+                    <a href="orders.html" id="ordersLink"><i class="fas fa-shopping-bag"></i> Orders</a>
                     <a href="#" id="wishlistLink"><i class="fas fa-heart"></i> Wishlist</a>
                     <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
                 
-                <!-- Theme toggle and other buttons for logged in users -->
                 <button class="theme-toggle" id="themeToggleLoggedIn">
                     <i class="fas fa-sun"></i>
                 </button>
@@ -93,7 +93,6 @@
                     <span class="hide-mobile">Feedback</span>
                 </button>
                 
-                <!-- Cart button for logged in users - opens cart drawer -->
                 <button class="header-btn cart-btn" id="cartBtnLoggedIn">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
@@ -110,7 +109,7 @@
         <button class="sub-header-link" id="priceListBtn">Price List</button>
     </div>
 
-    <!-- SHOP COLLECTION BUTTON - CENTERED UNDER SUB-HEADER -->
+    <!-- SHOP COLLECTION BUTTON -->
     <div class="shop-collection-container" id="shopCollectionContainer">
         <button class="shop-collection-btn" id="shopCollectionBtn">SHOP COLLECTION</button>
     </div>
@@ -209,26 +208,36 @@
         </div>
     </div>
 
-    <!-- HERO SECTION WITH CANVA VIDEO - NO TEXT -->
+    <!-- HERO SECTION WITH ANIMATED TEXT -->
     <section class="hero" id="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="media/Lux LPG final.mp4" type="video/mp4">
-            <img src="media/bg1.png" alt="Luxury Hair Extensions">
-        </video>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <!-- TEXT AND BUTTONS REMOVED -->
+            <!-- Animated Logo -->
+            <div class="hero-logo">
+                <img src="media/LOGOLOGO.png" alt="LuxHair ZA Logo">
+            </div>
+            
+            <!-- Animated Text -->
+            <div class="hero-text">
+                <h1 class="hero-title">LuxHair SA</h1>
+                <p class="hero-subtitle">Unmatched Quality. Unforgettable Beauty.</p>
+                <p class="hero-description">
+                    Experience the finest luxury hair extensions crafted for the modern woman. 
+                    Our premium collection features 100% virgin human hair that blends seamlessly 
+                    with your natural beauty, giving you confidence that lasts.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- NEW ARRIVALS -->
+    <!-- NEW ARRIVALS (22 Products Total) -->
     <section class="section" id="new">
         <img src="media/bg2.png" alt="" class="section-bg">
         <h2 class="section-title">New Arrivals</h2>
         <div class="product-grid">
             <!-- Product 1 -->
-            <div class="product-card" data-id="1" data-name="Brazilian Straight 22 Inch" data-price="1200">
+            <div class="product-card" data-id="1" data-name="Brazilian Straight 22 Inch" data-price="8100">
                 <div class="product-badge">NEW</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Brazilian Straight 22 Inch" class="product-image">
@@ -244,7 +253,7 @@
                         <i class="fas fa-star-half-alt"></i>
                         <span>(4.5)</span>
                     </div>
-                    <div class="product-price">R1,200</div>
+                    <div class="product-price">R8,100</div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -253,7 +262,7 @@
             </div>
             
             <!-- Product 2 -->
-            <div class="product-card" data-id="2" data-name="Peruvian Body Wave 24 Inch" data-price="1550">
+            <div class="product-card" data-id="2" data-name="Peruvian Body Wave 24 Inch" data-price="9400">
                 <div class="product-badge">NEW</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Peruvian Body Wave 24 Inch" class="product-image">
@@ -269,7 +278,7 @@
                         <i class="far fa-star"></i>
                         <span>(4.0)</span>
                     </div>
-                    <div class="product-price">R1,550</div>
+                    <div class="product-price">R9,400</div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -278,14 +287,14 @@
             </div>
             
             <!-- Product 3 -->
-            <div class="product-card" data-id="3" data-name="HD Lace Frontal 13x4" data-price="1800">
+            <div class="product-card" data-id="3" data-name="HD Lace Frontal 13x4" data-price="10900">
                 <div class="product-badge">NEW</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="HD Lace Frontal 13x4" class="product-image">
                     <img src="media/PLH.png" alt="HD Lace Frontal Back View" class="product-image-back">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">HD Lace Frontal 13x4</h3>
+                    <h3 class="product-title">HD Lace Frontal 13x4 24"</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -294,12 +303,136 @@
                         <i class="fas fa-star"></i>
                         <span>(5.0)</span>
                     </div>
-                    <div class="product-price">R1,800</div>
+                    <div class="product-price">R10,900</div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
                     </div>
-                    
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-id="4" data-name="Malaysian Deep Wave 18 Inch" data-price="7000">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Malaysian Deep Wave 18 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Malaysian Deep Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Malaysian Deep Wave 18"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R7,000</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-id="5" data-name="Indian Curly 16 Inch" data-price="6000">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Indian Curly 16 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Indian Curly Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Indian Curly 16"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <div class="product-price">R6,000</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-id="6" data-name="Peruvian Loose Wave 20 Inch" data-price="7600">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Peruvian Loose Wave 20 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Peruvian Loose Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Peruvian Loose Wave 20"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R7,600</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-id="7" data-name="Brazilian Water Wave 14 Inch" data-price="5000">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Brazilian Water Wave 14 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Brazilian Water Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Brazilian Water Wave 14"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R5,000</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-id="8" data-name="Cambodian Kinky Straight 26 Inch" data-price="9600">
+                <div class="product-badge">NEW</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Cambodian Kinky Straight 26 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Cambodian Kinky Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cambodian Kinky Straight 26"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R9,600</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -310,15 +443,15 @@
         <img src="media/bg4.png" alt="" class="section-bg">
         <h2 class="section-title">On Sale</h2>
         <div class="product-grid">
-            <!-- Product 4 -->
-            <div class="product-card" data-id="4" data-name="Virgin Indian Wave Bundle" data-price="999">
+            <!-- Product 9 -->
+            <div class="product-card" data-id="9" data-name="Virgin Indian Wave Bundle 12 Inch" data-price="3680">
                 <div class="product-badge">SALE</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Virgin Indian Wave Bundle" class="product-image">
                     <img src="media/PLH.png" alt="Virgin Indian Wave Back View" class="product-image-back">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Virgin Indian Wave Bundle</h3>
+                    <h3 class="product-title">Virgin Indian Wave 12"</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -327,7 +460,7 @@
                         <i class="fas fa-star-half-alt"></i>
                         <span>(4.5)</span>
                     </div>
-                    <div class="product-price">R999 <del>R1,299</del></div>
+                    <div class="product-price">R3,680 <del>R4,600</del></div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -335,15 +468,15 @@
                 </div>
             </div>
             
-            <!-- Product 5 -->
-            <div class="product-card" data-id="5" data-name="Closure 4x4 Deep Wave" data-price="850">
+            <!-- Product 10 -->
+            <div class="product-card" data-id="10" data-name="Closure 4x4 Deep Wave 10 Inch" data-price="3440">
                 <div class="product-badge">SALE</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Closure 4x4 Deep Wave" class="product-image">
                     <img src="media/PLH.png" alt="Closure 4x4 Back View" class="product-image-back">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Closure 4x4 Deep Wave</h3>
+                    <h3 class="product-title">Closure 4x4 Deep Wave 10"</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -352,7 +485,107 @@
                         <i class="far fa-star"></i>
                         <span>(4.0)</span>
                     </div>
-                    <div class="product-price">R850 <del>R1,100</del></div>
+                    <div class="product-price">R3,440 <del>R4,300</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-id="11" data-name="Brazilian Yaki 8 Inch" data-price="2800">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Brazilian Yaki 8 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Brazilian Yaki Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Brazilian Yaki 8"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4.0)</span>
+                    </div>
+                    <div class="product-price">R2,800 <del>R3,500</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-id="12" data-name="Peruvian Natural Wave 14 Inch" data-price="4640">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Peruvian Natural Wave 14 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Peruvian Natural Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Peruvian Natural Wave 14"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R4,640 <del>R5,800</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-id="13" data-name="Malaysian Silky Straight 16 Inch" data-price="5200">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Malaysian Silky Straight 16 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Malaysian Silky Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Malaysian Silky Straight 16"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R5,200 <del>R6,500</del></div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-id="14" data-name="Cambodian Body Wave 18 Inch" data-price="5960">
+                <div class="product-badge">SALE</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Cambodian Body Wave 18 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Cambodian Body Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cambodian Body Wave 18"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R5,960 <del>R7,450</del></div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -367,8 +600,8 @@
         <img src="media/bg4.png" alt="" class="section-bg">
         <h2 class="section-title">Popular Picks</h2>
         <div class="product-grid">
-            <!-- Product 6 -->
-            <div class="product-card" data-id="6" data-name="Raw Vietnamese Straight 26 Inch" data-price="1950">
+            <!-- Product 15 -->
+            <div class="product-card" data-id="15" data-name="Raw Vietnamese Straight 26 Inch" data-price="11000">
                 <div class="product-badge">BESTSELLER</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Raw Vietnamese Straight 26 Inch" class="product-image">
@@ -384,7 +617,7 @@
                         <i class="fas fa-star"></i>
                         <span>(5.0)</span>
                     </div>
-                    <div class="product-price">R1,950</div>
+                    <div class="product-price">R11,000</div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -392,15 +625,15 @@
                 </div>
             </div>
             
-            <!-- Product 7 -->
-            <div class="product-card" data-id="7" data-name="Transparent Lace Wig 13x6" data-price="2200">
+            <!-- Product 16 -->
+            <div class="product-card" data-id="16" data-name="Transparent Lace Wig 13x6 20 Inch" data-price="8600">
                 <div class="product-badge">BESTSELLER</div>
                 <div class="product-image-container">
                     <img src="media/PLH.png" alt="Transparent Lace Wig 13x6" class="product-image">
                     <img src="media/PLH.png" alt="Transparent Lace Wig Back View" class="product-image-back">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Transparent Lace Wig 13x6</h3>
+                    <h3 class="product-title">Transparent Lace Wig 13x6 20"</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -409,7 +642,157 @@
                         <i class="fas fa-star-half-alt"></i>
                         <span>(4.5)</span>
                     </div>
-                    <div class="product-price">R2,200</div>
+                    <div class="product-price">R8,600</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product-card" data-id="17" data-name="Peruvian Deep Curly 22 Inch" data-price="8900">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Peruvian Deep Curly 22 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Peruvian Deep Curly Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Peruvian Deep Curly 22"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R8,900</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" data-id="18" data-name="Brazilian Natural Straight 18 Inch" data-price="7450">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Brazilian Natural Straight 18 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Brazilian Natural Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Brazilian Natural Straight 18"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R7,450</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product-card" data-id="19" data-name="Malaysian Loose Deep Wave 20 Inch" data-price="8300">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Malaysian Loose Deep Wave 20 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Malaysian Loose Deep Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Malaysian Loose Deep Wave 20"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R8,300</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product-card" data-id="20" data-name="Indian Remy Straight 16 Inch" data-price="7200">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Indian Remy Straight 16 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Indian Remy Straight Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Indian Remy Straight 16"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R7,200</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 21 -->
+            <div class="product-card" data-id="21" data-name="Cambodian Kinky Curly 14 Inch" data-price="6200">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Cambodian Kinky Curly 14 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Cambodian Kinky Curly Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cambodian Kinky Curly 14"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <div class="product-price">R6,200</div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="btn btn-ghost">Quick View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 22 -->
+            <div class="product-card" data-id="22" data-name="Peruvian Soft Wave 12 Inch" data-price="5500">
+                <div class="product-badge">BESTSELLER</div>
+                <div class="product-image-container">
+                    <img src="media/PLH.png" alt="Peruvian Soft Wave 12 Inch" class="product-image">
+                    <img src="media/PLH.png" alt="Peruvian Soft Wave Back View" class="product-image-back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Peruvian Soft Wave 12"</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">R5,500</div>
                     <div class="product-actions">
                         <button class="btn add-to-cart">Add to Cart</button>
                         <button class="btn btn-ghost">Quick View</button>
@@ -419,9 +802,29 @@
         </div>
     </section>
 
-    <!-- PAYMENT OPTIONS SECTION -->
+    <!-- PAYMENT OPTIONS SECTION WITH SCAMMER WARNING -->
     <section class="section payment-section" id="payment">
         <h2 class="section-title">Payment Options</h2>
+        
+        <!-- SCAMMER WARNING -->
+        <div class="scammer-warning">
+            <div class="warning-header">
+                <i class="fas fa-exclamation-triangle warning-icon"></i>
+                <h3 class="warning-title">BEWARE OF SCAMMERS!</h3>
+            </div>
+            <div class="warning-content">
+                <p><strong>IMPORTANT:</strong> LuxHair ZA will NEVER ask you to pay via:</p>
+                <ul class="warning-list">
+                    <li>WhatsApp direct payments to personal accounts</li>
+                    <li>Western Union or MoneyGram transfers</li>
+                    <li>Cryptocurrency payments (Bitcoin, etc.)</li>
+                    <li>Gift cards or vouchers</li>
+                    <li>Cash payments to individuals claiming to represent us</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Always verify:</strong> Only pay through our official website checkout or our verified business bank account. Contact us directly if unsure: <strong style="color: var(--gold);">info@luxhairza.co.za</strong></p>
+            </div>
+        </div>
+        
         <div class="payment-options">
             <div class="payment-card">
                 <div class="payment-icon">
@@ -431,17 +834,6 @@
                 <p class="payment-description">
                     Secure payments via PayFast. Accepts VISA & MasterCard. 
                     Instant verification and protection.
-                </p>
-            </div>
-            
-            <div class="payment-card">
-                <div class="payment-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3 class="payment-title">Buy Now, Pay Later</h3>
-                <p class="payment-description">
-                    Flexible payment options with PayJustNow and Payflex. 
-                    Split your payment into installments.
                 </p>
             </div>
             
@@ -623,11 +1015,11 @@
                         <option value="">Select a product</option>
                         <option value="1">Brazilian Straight 22"</option>
                         <option value="2">Peruvian Body Wave 24"</option>
-                        <option value="3">HD Lace Frontal 13x4</option>
-                        <option value="4">Virgin Indian Wave Bundle</option>
-                        <option value="5">Closure 4x4 Deep Wave</option>
-                        <option value="6">Raw Vietnamese Straight 26"</option>
-                        <option value="7">Transparent Lace Wig 13x6</option>
+                        <option value="3">HD Lace Frontal 13x4 24"</option>
+                        <option value="4">Malaysian Deep Wave 18"</option>
+                        <option value="5">Indian Curly 16"</option>
+                        <option value="6">Peruvian Loose Wave 20"</option>
+                        <option value="7">Brazilian Water Wave 14"</option>
                     </select>
                 </div>
                 
@@ -687,7 +1079,6 @@
         </div>
         
         <div class="cart-items" id="cartItems">
-            <!-- Cart items will be loaded dynamically via JavaScript -->
             <p style="text-align: center; padding: 40px; color: var(--muted);">Your cart is empty</p>
         </div>
         
@@ -700,11 +1091,9 @@
         </div>
     </div>
 
-    <!-- External JavaScript - LOAD IN THIS ORDER -->
+    <!-- External JavaScript -->
     <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/script-auth.js"></script>
-    <!-- Add this script tag -->
-<script src="js/auth.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
